@@ -1,3 +1,38 @@
+@font-face {
+  font-family: 'Sofia pro';
+  src: url('./assets/fonts/SofiaProLight.woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia pro';
+  src: url('./assets/fonts/SofiaProRegular.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia pro';
+  src: url('./assets/fonts/SofiaProMedium.woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia pro';
+  src: url('./assets/fonts/SofiaProSemiBold.woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sofia pro';
+  src: url('./assets/fonts/SofiaProBold.woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
   --color-primary: #fe2749;
   --color-primary: #fe724c;
@@ -21,9 +56,9 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Sofia pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
   font-size: 1.5rem;
   line-height: 1.5;
   color: var(--color-grey);
