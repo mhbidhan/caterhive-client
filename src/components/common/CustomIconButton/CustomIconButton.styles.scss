@@ -1,0 +1,31 @@
+$shadow-properties: 0 5px 10px 0px;
+
+.btn-icon {
+  background-color: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding-left: 0.7rem;
+  box-shadow: $shadow-properties var(--color-shadow-grey);
+
+  &.large {
+    max-width: 17rem;
+    height: 5.3rem;
+
+    .icon {
+      max-width: 4rem;
+      margin-right: 1.5rem;
+    }
+  }
+
+  &.small {
+    max-width: 12rem;
+    height: 4.3rem;
+
+    .icon {
+      max-width: 3rem;
+      margin-right: 0.5rem;
+      margin-right: 1rem;
+    }
+  }
+}

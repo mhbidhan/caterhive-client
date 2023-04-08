@@ -1,18 +1,9 @@
 $shadow-properties: 0 5px 10px 0px;
 
 .btn {
-  background-color: #fff;
-  border-radius: 30px;
-  border: 0;
-  box-shadow: $shadow-properties var(--color-shadow-grey);
   display: block;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  outline: 0;
-  text-transform: capitalize;
-  transition: all 0.15s ease-in;
-  width: 100%;
-  cursor: pointer;
+  background-color: #fff;
+  box-shadow: $shadow-properties var(--color-shadow-grey);
 
   &.large {
     width: 24.8rem;
@@ -30,10 +21,6 @@ $shadow-properties: 0 5px 10px 0px;
   &.small {
     width: 9.5rem;
     height: 4.3rem;
-  }
-
-  &:active {
-    transform: scale(0.95);
   }
 }
 

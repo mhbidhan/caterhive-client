@@ -111,6 +111,22 @@ p {
   margin-bottom: 2.5rem;
 }
 
+button {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  transition: all 0.15s ease-in;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  border-radius: 30px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
 li {
   list-style: none;
 }
