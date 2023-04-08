@@ -1,4 +1,11 @@
 @font-face {
+  font-family: 'Phosphate';
+  src: url('./assets/fonts/Phosphate-Pro-Inline-Regular.woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Sofia pro';
   src: url('./assets/fonts/SofiaProLight.woff');
   font-weight: 300;
