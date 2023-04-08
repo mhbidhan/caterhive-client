@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import './Tab.styles.scss';
 
 const Tab = ({ tabData = [] }) => {
-  const [activeTab, setActiveTab] = useState(tabData[0]);
+  const [activeTab, setActiveTab] = useState([]);
+
+  useEffect(() => {
+    setActiveTab(tabData[0]);
+  }, [tabData]);
 
   if (!activeTab) return;
 
