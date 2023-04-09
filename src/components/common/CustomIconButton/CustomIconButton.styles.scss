@@ -1,12 +1,10 @@
-$shadow-properties: 0 5px 10px 0px;
-
 .btn-icon {
   background-color: var(--color-primary);
   color: #fff;
   display: flex;
   align-items: center;
   padding-left: 0.7rem;
-  box-shadow: $shadow-properties var(--color-shadow-grey);
+  box-shadow: var(--shadow-properties) var(--color-shadow-primary);
 
   &.large {
     max-width: 17rem;

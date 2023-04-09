@@ -1,9 +1,7 @@
-$shadow-properties: 0 5px 10px 0px;
-
 .btn {
   display: block;
   background-color: #fff;
-  box-shadow: $shadow-properties var(--color-shadow-grey);
+  box-shadow: var(--shadow-properties) var(--color-shadow-grey);
 
   &.large {
     width: 24.8rem;
@@ -26,6 +24,6 @@ $shadow-properties: 0 5px 10px 0px;
 
 .btn-primary {
   background-color: var(--color-primary);
-  box-shadow: $shadow-properties var(--color-shadow-primary);
+  box-shadow: var(--shadow-properties) var(--color-shadow-primary);
   color: #fff;
 }
