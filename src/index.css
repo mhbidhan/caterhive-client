@@ -48,7 +48,8 @@
   --color-grey: #9a9fae;
   --color-shadow-grey: rgba(153, 158, 173, 0.5);
   --color-shadow-primary: rgba(254, 115, 76, 0.5);
-  --shadow-properties: 0 5px 20px 0;
+  --color-shadow-accent: rgba(255, 197, 41, 0.5);
+  --shadow-properties: 0 5px 15px -3px;
 }
 
 *,
