@@ -6,7 +6,7 @@
   padding: 0.5rem;
   border-radius: 30px;
   font-weight: 600;
-  box-shadow: var(--shadow-properties) var(--color-shadow-grey);
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
 
   &.large {
     width: 9rem;
@@ -29,6 +29,6 @@
   &.colored {
     background-color: var(--color-accent);
     color: #fff;
-    box-shadow: var(--shadow-properties) var(--color-shadow-accent);
+    box-shadow: var(--shadow-prop) var(--color-shadow-accent);
   }
 }

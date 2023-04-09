@@ -5,19 +5,19 @@
   width: 3.5rem;
   height: 3.5rem;
   background-color: #fff;
-  box-shadow: var(--shadow-properties) var(--color-shadow-grey);
-  transition: all 0.15s ease-in;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  transition: var(--transition-prop);
 
   .heart-icon {
     width: 2rem;
     fill: var(--color-shadow-grey);
-    transition: all 0.15s ease-in;
+    transition: var(--transition-prop);
   }
 }
 
 .bookmarked {
   background-color: var(--color-primary);
-  box-shadow: var(--shadow-properties) var(--color-shadow-primary);
+  box-shadow: var(--shadow-prop) var(--color-shadow-primary);
 
   .heart-icon {
     fill: #fff;

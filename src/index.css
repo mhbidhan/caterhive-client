@@ -49,7 +49,8 @@
   --color-shadow-grey: rgba(153, 158, 173, 0.5);
   --color-shadow-primary: rgba(254, 115, 76, 0.5);
   --color-shadow-accent: rgba(255, 197, 41, 0.5);
-  --shadow-properties: 0 5px 15px -3px;
+  --shadow-prop: 0 5px 15px -3px;
+  --transition-prop: var(--transition-prop);
 }
 
 *,
@@ -118,7 +119,7 @@ button {
   border: 0;
   outline: 0;
   cursor: pointer;
-  transition: all 0.15s ease-in;
+  transition: var(--transition-prop);
   margin-bottom: 2rem;
   font-weight: 600;
   text-transform: capitalize;

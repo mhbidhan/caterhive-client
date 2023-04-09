@@ -37,6 +37,6 @@
 
   .tab-selector,
   .tab-content {
-    transition: all 0.15s ease-in;
+    transition: var(--transition-prop);
   }
 }
