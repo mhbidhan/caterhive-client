@@ -1,0 +1,46 @@
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.splash-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-primary);
+  font-family: 'Phosphate';
+  @include flex();
+
+  .content {
+    opacity: 0;
+    animation: blink 2s infinite;
+  }
+
+  .logo-container {
+    @include flex();
+    background-color: #fff;
+    width: 9rem;
+    height: 9rem;
+    margin: 1rem auto;
+    border-radius: 20px;
+  }
+
+  .name {
+    font-size: 4rem;
+    color: #fff;
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
