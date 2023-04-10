@@ -1,0 +1,48 @@
+$brand-img-size: 35%;
+
+.caterer-card {
+  width: 100%;
+  max-width: 28rem;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  border-radius: 15px;
+  position: relative;
+  padding: 2rem;
+  margin: 0 auto 3rem;
+  overflow: hidden;
+
+  .bookmark {
+    right: 2rem;
+    position: absolute;
+  }
+
+  .brand-img-container {
+    width: $brand-img-size;
+    height: $brand-img-size;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+    position: relative;
+    margin-bottom: 2rem;
+
+    .brand-img {
+      width: 100%;
+    }
+
+    .rating-badge {
+      position: absolute;
+      top: -9px;
+      right: -9px;
+    }
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+  }
+
+  .service-days {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+}
