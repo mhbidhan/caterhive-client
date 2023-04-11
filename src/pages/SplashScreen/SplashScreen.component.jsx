@@ -7,7 +7,7 @@ const SplashScreen = () => {
     <div className="splash-screen">
       <div className="content">
         <div className="logo-container">
-          <Logo />
+          <Logo className="logo" />
         </div>
         <h1 className="name">
           <span className="head">Cater </span>
