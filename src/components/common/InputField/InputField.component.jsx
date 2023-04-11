@@ -5,25 +5,29 @@ const InputField = ({
   label,
   handleChange,
   element = 'text',
+  error,
   ...otherProps
 }) => {
   return (
     <div className="input-group">
-      {element === 'textArea' ? (
-        <textarea
-          className="input-field"
-          onChange={handleChange}
-          rows={10}
-          {...otherProps}
-        />
-      ) : (
-        <input
-          className="input-field"
-          onChange={handleChange}
-          {...otherProps}
-        />
-      )}
-      <label className="input-label">{label}</label>
+      <div className="input-container">
+        {element === 'textArea' ? (
+          <textarea
+            className="input-field"
+            onChange={handleChange}
+            rows={10}
+            {...otherProps}
+          />
+        ) : (
+          <input
+            className="input-field"
+            onChange={handleChange}
+            {...otherProps}
+          />
+        )}
+        <label className="input-label">{label}</label>
+      </div>
+      {error ? <div className="error-message">{error}</div> : null}
     </div>
   );
 };

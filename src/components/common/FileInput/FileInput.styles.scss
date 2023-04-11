@@ -1,0 +1,41 @@
+.file-input-group {
+  .input-label {
+    display: block;
+    text-transform: capitalize;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .input-container {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 1.6rem;
+    border-radius: 7px;
+    border: 1px solid var(--color-grey);
+
+    .indicator {
+      text-transform: capitalize;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 35%;
+      height: 100%;
+      background-color: var(--color-grey);
+      color: #fff;
+      border-radius: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .file-name {
+      position: absolute;
+      left: 40%;
+    }
+
+    .file-input-field {
+      opacity: 0;
+    }
+  }
+}
