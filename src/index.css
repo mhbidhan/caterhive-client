@@ -41,11 +41,11 @@
 }
 
 :root {
-  --color-primary: #fe2749;
   --color-primary: #fe724c;
   --color-accent: #ffc529;
   --color-text: #1a1d26;
   --color-grey: #9a9fae;
+  --color-error: #fe2749;
   --color-shadow-grey: rgba(153, 158, 173, 0.5);
   --color-shadow-primary: rgba(254, 115, 76, 0.5);
   --color-shadow-accent: rgba(255, 197, 41, 0.5);
@@ -136,4 +136,20 @@ li {
 
 .container {
   padding: 2rem;
+}
+
+.error-message {
+  margin-top: 1rem;
+  color: var(--color-error);
+  animation: shake 0.2s none;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(5rem);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
