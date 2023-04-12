@@ -5,13 +5,14 @@ import BookmarkButton from './../common/BookmarkButton/BookmarkButton.component'
 import './CatererCard.styles.scss';
 
 const CatererCard = ({ caterer, bookmarked = false, handleClick }) => {
-  const handleBookmark = () => {
+  const handleBookmark = (e) => {
+    e.stopPropagation();
     // TODO: Implement bookmark.
   };
 
   if (!caterer) return;
 
-  const { bussinesName, brandImg, activeDays, providedServices, reviews } =
+  const { businessName, brandImg, activeDays, operationalAreas, reviews } =
     caterer;
   const rating =
     reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length;
@@ -25,16 +26,16 @@ const CatererCard = ({ caterer, bookmarked = false, handleClick }) => {
         <img src={brandImg} alt="" className="brand-img" />
         <span className="rating-badge">
           <Badge size="small" colored={true}>
-            {rating}
+            {isNaN(rating) || !rating ? 0 : rating}
           </Badge>
         </span>
       </div>
       <div>
-        <h2 className="title">{bussinesName}</h2>
+        <h2 className="title">{businessName}</h2>
         <div className="service-days">{activeDays}</div>
         <div className="services">
-          {providedServices.map((service) => (
-            <Tag key={service} label={service} />
+          {operationalAreas.map((area) => (
+            <Tag key={area._id} label={area.name} />
           ))}
         </div>
       </div>
