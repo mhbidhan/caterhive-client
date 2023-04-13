@@ -1,0 +1,56 @@
+.page-decorator {
+  .top-decoration {
+    position: absolute;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    .circle-1 {
+      position: absolute;
+      right: -6rem;
+      top: -7rem;
+      width: 15rem;
+      height: 15rem;
+      border-radius: 100%;
+      background-color: var(--color-primary);
+    }
+
+    .circle-2 {
+      position: absolute;
+      left: -0.5rem;
+      top: -9rem;
+      width: 17rem;
+      height: 17rem;
+      border-radius: 100%;
+      background-color: #ffece7;
+    }
+
+    .circle-3 {
+      position: absolute;
+      left: -6.5rem;
+      top: -4rem;
+      width: 13rem;
+      height: 13rem;
+      border-radius: 100%;
+      border: 3.5rem solid var(--color-primary);
+      z-index: -1;
+    }
+  }
+
+  .decoration {
+    width: 100vw;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: -35vh;
+    left: 0;
+  }
+
+  .content {
+    margin-top: 10rem;
+  }
+  .extra {
+    margin-top: 17rem;
+  }
+}
