@@ -47,7 +47,8 @@ const Login = () => {
       dispatch(setLoading(true));
 
       await loginCustomer(email, password);
-      // dispatch(setLoading(false));
+
+      dispatch(setLoading(false));
       document.location = '/';
     } catch (error) {
       dispatch(setLoading(false));
