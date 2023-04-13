@@ -7,6 +7,7 @@ const Dropdown = ({
   defaultPlaceholder = 'Select an option',
   placeholderProp,
   handleChange,
+  error,
 }) => {
   const [placeholder, setPlaceholder] = useState('');
   const [menuHidden, setMenuHidden] = useState(true);
@@ -15,8 +16,11 @@ const Dropdown = ({
   return (
     <div className="dropdown-container">
       <label className={`label ${menuHidden ? '' : 'active'}`}>{label}</label>
-      <div onClick={() => setMenuHidden(!menuHidden)} className="dropdown">
-        {placeholder || defaultPlaceholder}
+      <div className="group">
+        <div onClick={() => setMenuHidden(!menuHidden)} className="dropdown">
+          {placeholder || defaultPlaceholder}
+        </div>
+        {error ? <div className="error-message">{error}</div> : null}
       </div>
       <div className={`options ${menuHidden ? '' : 'show'}`}>
         {options.map((option) => (
