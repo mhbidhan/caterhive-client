@@ -2,7 +2,7 @@ import React from 'react';
 import { ReactComponent as Decoration } from '../../assets/icons/decoration.svg';
 import './PageDecorator.styles.scss';
 
-const PageDecorator = ({ children, circle = false }) => {
+const PageDecorator = ({ children, circle = true }) => {
   return (
     <div className="page-decorator">
       {circle ? (
@@ -14,9 +14,11 @@ const PageDecorator = ({ children, circle = false }) => {
           </div>
         </>
       ) : (
-        <Decoration className="decoration" />
+        <Decoration className="top-decoration" />
       )}
-      <div className={`content ${circle ? '' : 'extra'}`}>{children}</div>
+      <div className={`container content ${circle ? '' : 'extra'}`}>
+        {children}
+      </div>
     </div>
   );
 };
