@@ -66,6 +66,8 @@ html {
 }
 
 body {
+  width: 100vw;
+  overflow-x: hidden;
   font-family: 'Sofia pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
     'Helvetica Neue', sans-serif;
@@ -138,10 +140,19 @@ li {
   padding: 2rem;
 }
 
+.form-container {
+  margin-bottom: 4rem;
+}
+
 .error-message {
   margin-top: 1rem;
   color: var(--color-error);
   animation: shake 0.2s none;
+}
+
+.error-message-container {
+  width: max-content;
+  margin: 2rem auto;
 }
 
 @keyframes shake {
