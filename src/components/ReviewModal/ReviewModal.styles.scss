@@ -1,0 +1,48 @@
+.review-modal {
+  .backdrop,
+  .modal {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+  }
+
+  .modal {
+    height: 70vh;
+    top: 30vh;
+    background-color: #fff;
+    z-index: 10;
+    border-radius: 10px;
+    padding: 2rem;
+    animation: pop_in 0.3s;
+
+    .review-heading {
+      max-width: 70%;
+    }
+  }
+  .float-container {
+    position: absolute;
+    top: 32vh;
+    right: 2rem;
+    z-index: 100;
+    animation: fade_in 1s;
+  }
+
+  .btn-container {
+    padding: 2rem;
+    position: fixed;
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 10px 2px var(--color-shadow-grey);
+
+    * {
+      margin-bottom: 0;
+    }
+  }
+}
