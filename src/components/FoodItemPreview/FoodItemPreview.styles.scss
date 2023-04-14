@@ -3,6 +3,7 @@
   border-radius: 1rem;
   margin-bottom: 2rem;
   box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  cursor: pointer;
 
   .preview-toggle {
     position: relative;
@@ -49,5 +50,7 @@
 
   .show {
     display: block;
+    opacity: 1;
+    animation: fade_in 0.5s;
   }
 }
