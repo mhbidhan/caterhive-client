@@ -1,0 +1,24 @@
+.review-form-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .review-form {
+    width: 100%;
+    background-color: #fff;
+    padding: 2rem;
+    text-align: center;
+
+    .star {
+      width: 4rem;
+      height: 4rem;
+      stroke: var(--color-accent);
+    }
+
+    .filled {
+      fill: var(--color-accent);
+    }
+  }
+}
