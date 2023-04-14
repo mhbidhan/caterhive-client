@@ -8,6 +8,7 @@ async function get(url) {
   } catch (error) {
     if (error.response.status === 401) {
       localStorage.removeItem('token');
+      document.location = '/';
       return;
     }
     throw error;
@@ -20,6 +21,7 @@ async function post(url, data) {
   } catch (error) {
     if (error.response.status === 401) {
       localStorage.removeItem('token');
+      document.location = '/';
       return;
     }
     throw error;
@@ -32,6 +34,7 @@ async function put(url, data) {
   } catch (error) {
     if (error.response.status === 401) {
       localStorage.removeItem('token');
+      document.location = '/';
       return;
     }
     throw error;
@@ -44,6 +47,7 @@ async function deleteReq(url) {
   } catch (error) {
     if (error.response.status === 401) {
       localStorage.removeItem('token');
+      document.location = '/';
       return;
     }
     throw error;
