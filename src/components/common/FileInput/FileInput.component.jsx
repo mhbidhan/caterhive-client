@@ -7,6 +7,7 @@ const FileInput = ({ label, handleChange, error, ...otherProps }) => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
+    if (!file) return;
     setFileName(file.name);
 
     const fileReader = new FileReader();
