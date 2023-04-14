@@ -1,0 +1,41 @@
+.review {
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+
+  .review-user {
+    display: flex;
+    align-items: flex-start;
+
+    .img-container {
+      position: relative;
+
+      .badge-container {
+        position: absolute;
+        top: 3rem;
+        right: 2rem;
+      }
+    }
+
+    .review-user-img {
+      width: 6rem;
+      height: 6rem;
+      object-fit: cover;
+      border-radius: 100%;
+      object-position: top;
+      margin-right: 3rem;
+    }
+
+    .user-name {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 0;
+    }
+  }
+
+  .review-content {
+    font-size: 1.8rem;
+  }
+}
