@@ -5,7 +5,7 @@
   overflow: hidden;
 
   .side-bar {
-    width: 50%;
+    width: 55%;
     min-height: 100vh;
     padding: 3rem 2rem;
     box-shadow: 10px 0px 20px 0px rgba(204, 204, 204, 0.2);
@@ -52,6 +52,7 @@
     .logout-btn-container {
       position: absolute;
       width: 100%;
+      max-width: 200px;
       left: 4rem;
       bottom: 8rem;
     }
