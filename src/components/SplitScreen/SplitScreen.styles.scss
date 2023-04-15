@@ -1,18 +1,18 @@
 .split-screen {
   display: flex;
-  width: 100%;
-  min-height: 100vh;
   overflow: hidden;
 
   .side-bar {
     width: 55%;
     min-height: 100vh;
     padding: 3rem 2rem;
-    box-shadow: 10px 0px 20px 0px rgba(204, 204, 204, 0.2);
-    border-radius: 1rem;
+    background-color: #fff;
+    animation: slide_in 0.15s;
 
     .user-detail {
       margin-bottom: 3rem;
+      text-align: center;
+
       .user-img {
         width: 9rem;
         min-height: 9rem;
@@ -49,31 +49,36 @@
     .active {
       background-color: rgba(204, 204, 204, 0.2);
     }
+
     .logout-btn-container {
       position: absolute;
       width: 100%;
       max-width: 200px;
-      left: 4rem;
-      bottom: 8rem;
+      left: 12%;
+      bottom: 4rem;
     }
   }
 
   .main-content {
     position: relative;
+    background-color: rgba(204, 204, 204, 0.2);
+    width: 100%;
   }
 
   .content-half {
     width: 100vw;
     min-height: 100vh;
+    border-radius: 2.5rem;
+    background-color: #fff;
+    overflow: hidden;
     position: absolute;
-    box-shadow: 0px 0px 20px 1px rgba(204, 204, 204, 0.5);
     top: 50%;
     transform: scale(0.75) translateY(-70%);
-    border-radius: 2.5rem;
-    overflow: hidden;
+    animation: sidebar_on 0.15s;
   }
 
   .content-full {
-    width: 100vw;
+    animation: sidebar_off 0.15s;
+    background-color: #fff;
   }
 }
