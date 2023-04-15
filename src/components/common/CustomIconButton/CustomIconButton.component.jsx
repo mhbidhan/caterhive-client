@@ -9,7 +9,7 @@ const CustomIconButton = ({
   ...otherProps
 }) => {
   return (
-    <button className={`btn-icon ${size}`}>
+    <button onClick={handleClick} className={`btn-icon ${size}`}>
       <Icon className="icon" />
       <span className="label">{label}</span>
     </button>
