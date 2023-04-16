@@ -10,8 +10,8 @@ const MyProfile = () => {
   const { fullName, email, profileImg, phone, area, address } = user;
   return (
     <PageDecorator circle={false}>
+      <SidebarButton />
       <div className="my-profile container">
-        <SidebarButton />
         <div className="user-intro">
           <img src={profileImg} alt="" className="user-img" />
           <h3>{fullName}</h3>

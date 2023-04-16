@@ -138,6 +138,7 @@ li {
 
 .container {
   padding: 2rem;
+  min-height: 90vh;
 }
 
 .form-container {
