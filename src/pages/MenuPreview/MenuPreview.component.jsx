@@ -2,6 +2,7 @@ import React, { createContext, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
+import useBookmark from '../../hooks/useBookmark';
 import { getMenuById, reviewMenuById } from '../../services/menu';
 import BackButton from './../../components/BackButton/BackButton.component';
 import FoodItemList from './../../components/FoodItemList/FoodItemList.component';
@@ -16,6 +17,7 @@ const MenuPreview = () => {
   const [reviewModal, setReviewModal] = useState(false);
   const [menu, setMenu] = useState(null);
   const navigate = useNavigate();
+  const { bookmarkMenu } = useBookmark();
 
   let { menuId } = useParams();
 
@@ -73,7 +75,10 @@ const MenuPreview = () => {
             <BackButton />
           </div>
           <div className="bookmark-container">
-            <BookmarkButton bookmarked={bookmarked} />
+            <BookmarkButton
+              handleClick={() => bookmarkMenu(_id)}
+              bookmarked={bookmarked}
+            />
           </div>
           <img src={thumbnail} alt="" className="thumbnail" />
           <div>

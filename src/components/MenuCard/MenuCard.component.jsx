@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
 import Badge from '../common/Badge/Badge.component';
+import useBookmark from './../../hooks/useBookmark';
 import BookmarkButton from './../common/BookmarkButton/BookmarkButton.component';
 import Tag from './../common/Tag/Tag.component';
 import './MenuCard.styles.scss';
@@ -10,16 +11,23 @@ import './MenuCard.styles.scss';
 const MenuCard = ({ menu }) => {
   const user = useSelector((state) => state.user);
   const navigate = useNavigate();
+  const { bookmarkMenu } = useBookmark();
 
   const { _id, title, price, thumbnail, rating, reviews, tags } = menu;
   return (
     <div onClick={() => navigate(`/menus/${_id}`)} className="menu-card">
-      <div className="bookmark-container">
+      <div
+        onClick={(e) => {
+          e.stopPropagation();
+          bookmarkMenu(_id);
+        }}
+        className="bookmark-container"
+      >
         <BookmarkButton bookmarked={user.bookmarks.menus.includes(_id)} />
       </div>
       <div className="img-container">
         <div className="price-badge">
-          <Badge size="large">
+          <Badge size="large" colored={true}>
             <h4>{price} BDT</h4>
           </Badge>
         </div>
@@ -35,7 +43,7 @@ const MenuCard = ({ menu }) => {
       <div className="content">
         <h4>{title}</h4>
         {tags.split(',').map((tag) => (
-          <Tag label={tag} />
+          <Tag key={tag} label={tag} />
         ))}
       </div>
     </div>
