@@ -13,7 +13,6 @@ const ReviewModal = ({ reviewFor = 'Product', reviews = [], handleClose }) => {
         <div className="float-container">
           <FloatingButton
             onClick={() => {
-              console.log('sfa');
               handleClose();
             }}
           >
@@ -23,22 +22,24 @@ const ReviewModal = ({ reviewFor = 'Product', reviews = [], handleClose }) => {
         <div onClick={(e) => e.stopPropagation()} className="modal">
           {showReviewForm ? (
             <ReviewForm
-              menuName={reviewFor}
+              reviewFor={reviewFor}
               setShowReviewForm={setShowReviewForm}
             />
           ) : (
             <>
               <h2 className="review-heading">{reviewFor} Reviews</h2>
-              {reviews
-                .sort((a, b) => {
-                  return (
-                    new Date(b.createdAt).getTime() -
-                    new Date(a.createdAt).getTime()
-                  );
-                })
-                .map((review) => (
-                  <Review key={review._id} review={review} />
-                ))}
+              <div className="review-list">
+                {reviews
+                  .sort((a, b) => {
+                    return (
+                      new Date(b.createdAt).getTime() -
+                      new Date(a.createdAt).getTime()
+                    );
+                  })
+                  .map((review) => (
+                    <Review key={review._id} review={review} />
+                  ))}
+              </div>
               <div className="btn-container">
                 <CustomButton
                   label={`Review ${reviewFor}`}
