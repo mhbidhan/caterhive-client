@@ -50,12 +50,15 @@ const SplitScreen = ({ children, routes = [] }) => {
         </div>
       ) : null}
       <div className="main-content">
-        <div
-          onClick={(e) => {
-            if (sidebar) dispatch(setSidebar(false));
-          }}
-          className={sidebar ? 'content-half' : 'content-full'}
-        >
+        <div className={sidebar ? 'content-half' : 'content-full'}>
+          {sidebar ? (
+            <div
+              onClick={(e) => {
+                if (sidebar) dispatch(setSidebar(false));
+              }}
+              className="close"
+            ></div>
+          ) : null}
           {children}
         </div>
       </div>
