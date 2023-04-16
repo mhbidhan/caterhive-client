@@ -24,3 +24,15 @@ export async function reviewMenuById(id, review) {
     throw error;
   }
 }
+
+export async function bookmarkMenuById(id) {
+  try {
+    const { data } = await http.put(
+      `${process.env.REACT_APP_API_ENDPOINT}/menus/bookmark/${id}`
+    );
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
