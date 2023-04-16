@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
+import { MenuContext } from '../../pages/MenuPreview/MenuPreview.component';
 import CustomButton from './../common/CustomButton/CustomButton.component';
 import FloatingButton from './../common/FloatingButton/FloatingButton.component';
 import InputField from './../common/InputField/InputField.component';
 import './ReviewForm.styles.scss';
 
-const ReviewForm = ({ menuName = '', setShowReviewForm }) => {
+const ReviewForm = ({ reviewFor = '', setShowReviewForm }) => {
+  const { handleReview } = useContext(MenuContext);
   const [stars, setStars] = useState([
     { rating: 1, active: true },
     { rating: 2, active: false },
@@ -16,23 +18,19 @@ const ReviewForm = ({ menuName = '', setShowReviewForm }) => {
   const [rating, setRating] = useState(1);
   const [reviewContent, setReviewContent] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    console.log({
-      rating,
-      reviewContent,
-    });
-  };
-
   return (
     <>
       <FloatingButton handleClick={() => setShowReviewForm(false)}>
         &#10096;
       </FloatingButton>
       <div className="review-form-container">
-        <form className="review-form" onSubmit={handleSubmit}>
-          <h2>Review {menuName}</h2>
+        <form
+          className="review-form"
+          onSubmit={(e) =>
+            handleReview(e, { rating, reviewContent, setShowReviewForm })
+          }
+        >
+          <h2>Review {reviewFor}</h2>
           <div className="star-container">
             {stars.map((star) => (
               <StarIcon
