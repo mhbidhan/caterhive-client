@@ -12,6 +12,9 @@ const FoodItemList = ({ foodItems = [], menuName = 'the' }) => {
       setActive(foodItem);
     }
   };
+
+  if (!foodItems.length) return;
+
   return (
     <div className="food-item-list">
       <p className="list-heading">food items of {menuName} menu</p>
