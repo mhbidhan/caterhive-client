@@ -1,6 +1,12 @@
 .menu-preview {
   position: relative;
 
+  .back-btn-container {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+
   .bookmark-container {
     position: absolute;
     top: 1rem;
@@ -28,11 +34,20 @@
     margin: 1rem 0;
   }
 
-  .rating-review {
+  .rating-review,
+  .no-review {
     display: flex;
     align-items: center;
     position: relative;
     left: -1rem;
+  }
+
+  .post-review {
+    margin: 1rem;
+    text-transform: capitalize;
+    text-decoration: underline;
+    color: var(--color-primary);
+    cursor: pointer;
   }
 
   .rating {
