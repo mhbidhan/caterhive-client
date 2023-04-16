@@ -1,0 +1,65 @@
+.menu-preview {
+  position: relative;
+
+  .bookmark-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .thumbnail {
+    width: 100%;
+    height: 65vw;
+    object-fit: cover;
+    border-radius: 1.2rem;
+    box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+  .price {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin: 1rem 0;
+  }
+
+  .rating-review {
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: -1rem;
+  }
+
+  .rating {
+    color: var(--color-text);
+    margin-right: 1.5rem;
+    font-weight: 600;
+  }
+
+  .review-container {
+    color: var(--color-primary);
+  }
+
+  .review-count {
+    text-decoration: underline;
+    margin: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .star-icon {
+    fill: var(--color-accent);
+    width: 4rem;
+    text-align: start;
+  }
+}
+
+.modal-active {
+  height: calc(100vh - 4rem);
+  overflow: hidden;
+}

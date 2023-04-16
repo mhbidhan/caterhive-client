@@ -37,7 +37,7 @@ const ReviewModal = ({ reviewFor = 'Product', reviews = [], handleClose }) => {
                   );
                 })
                 .map((review) => (
-                  <Review review={review} />
+                  <Review key={review._id} review={review} />
                 ))}
               <div className="btn-container">
                 <CustomButton
