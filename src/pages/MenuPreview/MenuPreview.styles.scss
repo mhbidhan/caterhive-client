@@ -1,6 +1,13 @@
 .menu-preview {
   position: relative;
 
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+
   .back-btn-container {
     position: absolute;
     top: 1rem;
@@ -38,8 +45,6 @@
   .no-review {
     display: flex;
     align-items: center;
-    position: relative;
-    left: -1rem;
   }
 
   .post-review {
@@ -52,7 +57,7 @@
 
   .rating {
     color: var(--color-text);
-    margin-right: 1.5rem;
+    // margin-right: 1rem;
     font-weight: 600;
   }
 
@@ -77,4 +82,35 @@
 .modal-active {
   height: calc(100vh - 4rem);
   overflow: hidden;
+}
+
+.caterer-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  padding: 1rem;
+  border-radius: 1rem;
+
+  .caterer-name {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+
+  .caterer-logo {
+    width: 6rem;
+    height: 6rem;
+    padding: 1rem;
+    border-radius: 100%;
+    box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+    margin-right: 2rem;
+  }
+
+  .star-icon {
+    width: 2.5rem;
+  }
 }

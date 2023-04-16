@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
 import { getMenuById, reviewMenuById } from '../../services/menu';
 import BackButton from './../../components/BackButton/BackButton.component';
@@ -15,6 +15,7 @@ const MenuPreview = () => {
   const user = useSelector((state) => state.user);
   const [reviewModal, setReviewModal] = useState(false);
   const [menu, setMenu] = useState(null);
+  const navigate = useNavigate();
 
   let { menuId } = useParams();
 
@@ -38,6 +39,7 @@ const MenuPreview = () => {
     price,
     foodItems,
     reviews,
+    caterer,
   } = menu;
 
   const handleReview = async (
@@ -73,10 +75,28 @@ const MenuPreview = () => {
           <div className="bookmark-container">
             <BookmarkButton bookmarked={bookmarked} />
           </div>
-
           <img src={thumbnail} alt="" className="thumbnail" />
           <div>
-            <h2>{title}</h2>
+            <div className="main">
+              <h2>{title}</h2>
+              <p className="price">{price} bdt</p>
+            </div>
+            <div
+              onClick={() => navigate(`/caterers/${caterer._id}`)}
+              className="caterer-details"
+            >
+              <img src={caterer.brandImg} className="caterer-logo" alt="" />
+              <div>
+                <p className="caterer-name">{caterer.businessName}</p>
+                {caterer.reviews.length ? (
+                  <div className="rating-review">
+                    <span className="rating"> {caterer.rating}</span>
+                    <StarIcon className="star-icon" />
+                    <span className="review-container"></span>
+                  </div>
+                ) : null}
+              </div>
+            </div>
             {!reviews.length ? (
               <div className="no-review">
                 <StarIcon className="star-icon" /> No reviews yet
@@ -89,8 +109,8 @@ const MenuPreview = () => {
               </div>
             ) : (
               <div className="rating-review">
-                <StarIcon className="star-icon" />
                 <span className="rating"> {rating}</span>
+                <StarIcon className="star-icon" />
                 <span className="review-container">
                   (
                   <span
@@ -103,7 +123,6 @@ const MenuPreview = () => {
                 </span>
               </div>
             )}
-            <p className="price">{price} bdt</p>
             <p>{description}</p>
 
             <FoodItemList foodItems={foodItems} menuName={title} />
