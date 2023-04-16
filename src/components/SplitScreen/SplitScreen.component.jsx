@@ -22,16 +22,18 @@ const SplitScreen = ({ children, routes = [] }) => {
               <p className="user-email">{user.email}</p>
             </div>
             <ul className="nav-links">
-              {routes.map((route) => (
-                <NavLink
-                  onClick={() => dispatch(setSidebar(false))}
-                  className="nav-link"
-                  key={route?.path}
-                  to={route?.path}
-                >
-                  {route?.label}
-                </NavLink>
-              ))}
+              {routes.map((route) =>
+                route.sidebar ? (
+                  <NavLink
+                    onClick={() => dispatch(setSidebar(false))}
+                    className="nav-link"
+                    key={route?.path}
+                    to={route?.path}
+                  >
+                    {route?.label}
+                  </NavLink>
+                ) : null
+              )}
             </ul>
             <div className="logout-btn-container">
               <CustomIconButton
