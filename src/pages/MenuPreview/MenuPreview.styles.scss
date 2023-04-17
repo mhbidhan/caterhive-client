@@ -83,34 +83,3 @@
   height: calc(100vh - 4rem);
   overflow: hidden;
 }
-
-.caterer-details {
-  display: flex;
-  align-items: center;
-  margin-bottom: 3rem;
-  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
-  padding: 1rem;
-  border-radius: 1rem;
-
-  .caterer-name {
-    color: var(--color-text);
-    font-weight: 600;
-  }
-
-  p {
-    margin-bottom: 0.5rem;
-  }
-
-  .caterer-logo {
-    width: 6rem;
-    height: 6rem;
-    padding: 1rem;
-    border-radius: 100%;
-    box-shadow: var(--shadow-prop) var(--color-shadow-grey);
-    margin-right: 2rem;
-  }
-
-  .star-icon {
-    width: 2.5rem;
-  }
-}

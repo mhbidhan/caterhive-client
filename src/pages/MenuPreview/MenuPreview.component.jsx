@@ -5,6 +5,7 @@ import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
 import useBookmark from '../../hooks/useBookmark';
 import { getMenuById, reviewMenuById } from '../../services/menu';
 import BackButton from './../../components/BackButton/BackButton.component';
+import CatererDetailCard from './../../components/CatererDetailCard/CatererDetailCard.component';
 import FoodItemList from './../../components/FoodItemList/FoodItemList.component';
 import ReviewModal from './../../components/ReviewModal/ReviewModal.component';
 import BookmarkButton from './../../components/common/BookmarkButton/BookmarkButton.component';
@@ -86,22 +87,11 @@ const MenuPreview = () => {
               <h2>{title}</h2>
               <p className="price">{price} bdt</p>
             </div>
-            <div
-              onClick={() => navigate(`/caterers/${caterer._id}`)}
-              className="caterer-details"
-            >
-              <img src={caterer.brandImg} className="caterer-logo" alt="" />
-              <div>
-                <p className="caterer-name">{caterer.businessName}</p>
-                {caterer.reviews.length ? (
-                  <div className="rating-review">
-                    <span className="rating"> {caterer.rating}</span>
-                    <StarIcon className="star-icon" />
-                    <span className="review-container"></span>
-                  </div>
-                ) : null}
-              </div>
-            </div>
+            <CatererDetailCard
+              caterer={caterer}
+              handleClick={() => navigate(`/caterers/${caterer._id}`)}
+            />
+
             {!reviews.length ? (
               <div className="no-review">
                 <StarIcon className="star-icon" /> No reviews yet
