@@ -1,0 +1,45 @@
+.day-menu-card {
+  width: 100%;
+  padding: 2rem;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  margin-bottom: 2rem;
+  border-radius: 3rem;
+  position: relative;
+
+  .badge-container {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    text-transform: capitalize;
+
+    * {
+      color: black;
+    }
+  }
+
+  .menu-card-container {
+    display: flex;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+
+    .individual-card-container {
+      min-width: 60vw;
+      margin-right: 1rem;
+    }
+  }
+
+  .title,
+  .price {
+    font-weight: 600;
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--color-text);
+  }
+
+  .price {
+    color: var(--color-primary);
+  }
+  .day-menu-content {
+    margin: 2rem 0;
+  }
+}
