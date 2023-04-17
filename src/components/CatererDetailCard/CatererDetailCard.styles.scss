@@ -1,0 +1,56 @@
+.caterer-details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  border-radius: 1rem;
+  text-align: start;
+
+  .caterer-name {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .rating-review {
+    display: flex;
+    align-items: center;
+  }
+
+  p {
+    margin-bottom: 0rem;
+  }
+
+  .rating-review {
+    font-weight: 400;
+  }
+
+  .caterer-logo {
+    width: 6rem;
+    height: 6rem;
+    padding: 1rem;
+    border-radius: 100%;
+    box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+    margin-right: 2rem;
+  }
+
+  .rating {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .review-container {
+    color: var(--color-primary);
+  }
+
+  .review-count {
+    text-decoration: underline;
+    margin: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .star-icon {
+    fill: var(--color-accent);
+    width: 2.5rem;
+    text-align: start;
+  }
+}
