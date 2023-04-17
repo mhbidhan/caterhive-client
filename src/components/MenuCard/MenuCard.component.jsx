@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
 import Badge from '../common/Badge/Badge.component';
 import useBookmark from './../../hooks/useBookmark';
@@ -8,14 +7,13 @@ import BookmarkButton from './../common/BookmarkButton/BookmarkButton.component'
 import Tag from './../common/Tag/Tag.component';
 import './MenuCard.styles.scss';
 
-const MenuCard = ({ menu }) => {
+const MenuCard = ({ menu, handleClick }) => {
   const user = useSelector((state) => state.user);
-  const navigate = useNavigate();
   const { bookmarkMenu } = useBookmark();
 
   const { _id, title, price, thumbnail, rating, reviews, tags } = menu;
   return (
-    <div onClick={() => navigate(`/menus/${_id}`)} className="menu-card">
+    <div onClick={handleClick} className="menu-card">
       <div
         onClick={(e) => {
           e.stopPropagation();
