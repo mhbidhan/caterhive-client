@@ -27,7 +27,7 @@ export async function getCatererById(id) {
 export async function bookmarkCatererById(id) {
   try {
     const { data } = await http.put(
-      `${process.env.REACT_APP_API_ENDPOINT}/caterer/bookmark/${id}`
+      `${process.env.REACT_APP_API_ENDPOINT}/caterers/bookmark/${id}`
     );
 
     return data;

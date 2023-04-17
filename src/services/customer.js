@@ -1,9 +1,11 @@
 import http from './http';
 
-export async function getOwnData() {
+export async function getOwnData(populate = false) {
   try {
     const { data } = await http.get(
-      `${process.env.REACT_APP_API_ENDPOINT}/customers/own`
+      `${process.env.REACT_APP_API_ENDPOINT}/customers/own?populate=${
+        populate ? '1' : '0'
+      }`
     );
 
     return data;
