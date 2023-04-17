@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import Bookmarks from '../../pages/Bookmarks/Bookmarks.component';
 import Home from '../../pages/Home/Home.page';
 import SplitScreen from './../../components/SplitScreen/SplitScreen.component';
 import MenuPreview from './../../pages/MenuPreview/MenuPreview.component';
@@ -20,7 +21,13 @@ const Authenticated = () => {
       sidebar: true,
     },
     {
-      path: '/menu/:menuId',
+      path: '/bookmarks',
+      label: 'Bookmarks',
+      element: <Bookmarks />,
+      sidebar: true,
+    },
+    {
+      path: '/menus/:menuId',
       label: 'Menu',
       element: <MenuPreview />,
     },
