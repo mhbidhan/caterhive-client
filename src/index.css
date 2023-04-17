@@ -141,6 +141,10 @@ li {
   min-height: 90vh;
 }
 
+.padding-top {
+  padding-top: 8rem;
+}
+
 .form-container {
   margin-bottom: 4rem;
 }
