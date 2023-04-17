@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './Tab.styles.scss';
 
-const Tab = ({ tabData = [] }) => {
+const Tab = ({ tabData = [], id }) => {
   const [activeTab, setActiveTab] = useState([]);
 
   useEffect(() => {
-    setActiveTab(tabData[0]);
-  }, [tabData]);
+    const lastActive = localStorage.getItem('lastTab' + id);
+    if (!lastActive) {
+      setActiveTab(tabData[0]);
+    } else {
+      setActiveTab(tabData.find((tab) => tab.id === lastActive));
+    }
+  }, [tabData, id]);
 
   if (!activeTab) return;
 
@@ -15,7 +20,10 @@ const Tab = ({ tabData = [] }) => {
       <ul className="tab-list">
         {tabData.map((tab) => (
           <li
-            onClick={() => setActiveTab(tab)}
+            onClick={() => {
+              localStorage.setItem('lastTab' + id, tab.id);
+              setActiveTab(tab);
+            }}
             key={tab.id}
             className={`tab-selector ${
               tab.id === activeTab.id ? 'active' : ''
