@@ -43,6 +43,7 @@ const CatererPreview = () => {
           {weekMenu
             ? Object.keys(weekMenu).map((day) => (
                 <DayMenuCard
+                  key={day}
                   dayMenu={weekMenu[day]}
                   day={day}
                   handleClick={() => navigate(`dayMenu/${weekMenu[day]._id}`)}

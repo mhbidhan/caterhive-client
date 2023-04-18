@@ -1,5 +1,8 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
+import CartButton from '../../components/CartButton/CartButton.component';
+import CartModal from '../../components/CartModal/CartModal.component';
 import Bookmarks from '../../pages/Bookmarks/Bookmarks.component';
 import CatererPreview from '../../pages/CatererPreview/CatererPreview.page';
 import Home from '../../pages/Home/Home.page';
@@ -8,6 +11,7 @@ import MenuPreview from './../../pages/MenuPreview/MenuPreview.component';
 import MyProfile from './../../pages/MyProfile/MyProfile.page';
 
 const Authenticated = () => {
+  const cart = useSelector((state) => state.cart);
   const routes = [
     {
       path: '/',
@@ -41,6 +45,8 @@ const Authenticated = () => {
   return (
     <div>
       <SplitScreen routes={routes}>
+        {cart.cartHidden ? <CartButton /> : <CartModal />}
+
         <Routes>
           {routes.map((route) => {
             const { path, element } = route;
