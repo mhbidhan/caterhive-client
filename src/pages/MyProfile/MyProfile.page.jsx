@@ -13,7 +13,7 @@ const MyProfile = () => {
       <SidebarButton />
       <div className="my-profile container">
         <div className="user-intro">
-          <img src={profileImg} alt="" className="user-img" />
+          <img src={profileImg} alt="" className="user-img avatar" />
           <h3>{fullName}</h3>
           <p>{email}</p>
         </div>
