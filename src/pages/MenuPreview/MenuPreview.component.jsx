@@ -1,8 +1,12 @@
 import React, { createContext, useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { ReactComponent as CartIcon } from '../../assets/icons/cart-icon.svg';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
+import CustomIconButton from '../../components/common/CustomIconButton/CustomIconButton.component';
 import useBookmark from '../../hooks/useBookmark';
+import { addItemToCart } from '../../redux/redducers/cart';
+import { setLoading } from '../../redux/redducers/loading';
 import { getMenuById, reviewMenuById } from '../../services/menu';
 import BackButton from './../../components/BackButton/BackButton.component';
 import CatererDetailCard from './../../components/CatererDetailCard/CatererDetailCard.component';
@@ -15,18 +19,23 @@ export const MenuContext = createContext();
 
 const MenuPreview = () => {
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const [reviewModal, setReviewModal] = useState(false);
   const [menu, setMenu] = useState(null);
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const masterPrice = state?.masterPrice;
   const { bookmarkMenu } = useBookmark();
 
   let { menuId } = useParams();
 
   const getMenu = useCallback(async () => {
+    dispatch(setLoading(true));
     const menu = await getMenuById(menuId);
 
     setMenu(menu);
-  }, [setMenu, menuId]);
+    dispatch(setLoading(false));
+  }, [setMenu, menuId, dispatch]);
 
   useEffect(() => {
     getMenu();
@@ -63,6 +72,16 @@ const MenuPreview = () => {
   const bookmarked = user.bookmarks.menus.includes(_id);
   return (
     <MenuContext.Provider value={{ handleReview }}>
+      <div className="cart-btn-container">
+        <CustomIconButton
+          Icon={CartIcon}
+          label={'Add to cart'}
+          handleClick={(e) => {
+            e.stopPropagation();
+            dispatch(addItemToCart(menu));
+          }}
+        />
+      </div>
       <div className="container">
         {reviewModal ? (
           <ReviewModal
@@ -85,7 +104,17 @@ const MenuPreview = () => {
           <div>
             <div className="main">
               <h2>{title}</h2>
-              <p className="price">{price} bdt</p>
+              <p className="price">
+                {masterPrice ? (
+                  <>
+                    <span className="small-price">{price}</span>
+                    {masterPrice}
+                  </>
+                ) : (
+                  <span>{price}</span>
+                )}{' '}
+                bdt
+              </p>
             </div>
             <CatererDetailCard
               caterer={caterer}

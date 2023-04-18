@@ -40,6 +40,12 @@
     color: var(--color-primary);
     margin: 1rem 0;
   }
+  .small-price {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    text-decoration: line-through;
+    color: red;
+  }
 
   .rating-review,
   .no-review {
@@ -82,4 +88,11 @@
 .modal-active {
   height: calc(100vh - 4rem);
   overflow: hidden;
+}
+
+.cart-btn-container {
+  position: fixed;
+  bottom: 2rem;
+  width: 100%;
+  z-index: 10;
 }
