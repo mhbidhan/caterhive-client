@@ -3,26 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   cartHidden: true,
   caterer: '439a025550f403936469429',
-  cartItems: [
-    {
-      _id: '643a72e6118bac3190fdea37',
-      title: 'Beef & Rice',
-      thumbnail:
-        'https://res.cloudinary.com/xelta/image/upload/v1681552147/caterhive/qqfjkyvo4nhf5qiwwtme.webp',
-      price: 300,
-      quantity: 1,
-    },
-    {
-      quantity: 4,
-      _id: '643d244651151be1f754aa51',
-
-      caterer: { __v: 0, _id: '6439a025550f403936469429' },
-      title: 'Beef & Salad',
-      thumbnail:
-        'https://res.cloudinary.com/xelta/image/upload/v1681728581/caterhive/ky3t50gvbn1x2ge8ngrq.jpg',
-      price: 300,
-    },
-  ],
+  cartItems: [],
 };
 
 export const cartSlice = createSlice({
