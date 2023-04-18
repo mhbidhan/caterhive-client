@@ -32,13 +32,14 @@ const DayMenuCard = ({ dayMenu, day, handleClick }) => {
       <div className="menu-card-container">
         {menus.map((menu) => (
           <div
+            key={menu._id}
             onClick={(e) => {
               e.stopPropagation();
-              navigate(`/menus/${menu._id}`);
+              navigate(`/menus/${menu._id}`, { state: { masterPrice: price } });
             }}
             className="individual-card-container"
           >
-            <MenuCard menu={menu} />
+            <MenuCard menu={menu} masterPrice={price} />
           </div>
         ))}
       </div>
