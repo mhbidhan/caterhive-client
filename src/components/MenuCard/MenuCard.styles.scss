@@ -31,6 +31,20 @@
     position: absolute;
     top: 2rem;
     left: 2rem;
+
+    .master-price,
+    .price {
+      margin-right: 0.5rem;
+      color: black;
+      font-size: 1.8rem;
+    }
+
+    .small-price {
+      font-size: 1rem;
+      margin-right: 0.5rem;
+      text-decoration: line-through;
+      color: red;
+    }
   }
 
   .icon {
