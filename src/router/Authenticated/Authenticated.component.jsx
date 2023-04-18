@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import Bookmarks from '../../pages/Bookmarks/Bookmarks.component';
+import CatererPreview from '../../pages/CatererPreview/CatererPreview.page';
 import Home from '../../pages/Home/Home.page';
 import SplitScreen from './../../components/SplitScreen/SplitScreen.component';
 import MenuPreview from './../../pages/MenuPreview/MenuPreview.component';
@@ -30,6 +31,11 @@ const Authenticated = () => {
       path: '/menus/:menuId',
       label: 'Menu',
       element: <MenuPreview />,
+    },
+    {
+      path: '/caterers/:catererId',
+      label: 'Menu',
+      element: <CatererPreview />,
     },
   ];
   return (
