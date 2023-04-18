@@ -15,6 +15,7 @@
     padding: 3rem 2rem;
     background-color: #fff;
     animation: slide_in 0.15s;
+    position: relative;
 
     .user-detail {
       margin-bottom: 3rem;
@@ -60,8 +61,7 @@
     .logout-btn-container {
       position: absolute;
       width: 100%;
-      max-width: 200px;
-      left: 12%;
+      left: 0;
       bottom: 4rem;
     }
   }
