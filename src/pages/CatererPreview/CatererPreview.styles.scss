@@ -1,0 +1,19 @@
+.caterer-preview {
+  .caterer-intro {
+    position: absolute;
+    top: 12rem;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h3 {
+      text-transform: capitalize;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .day-menu-container {
+    margin-top: 50%;
+  }
+}
