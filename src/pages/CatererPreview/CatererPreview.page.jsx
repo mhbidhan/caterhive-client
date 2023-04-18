@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DayMenuCard from '../../components/DayMenuCard/DayMenuCard.component';
 import PageDecorator from '../../components/PageDecorator/PageDecorator.component';
 import SidebarButton from '../../components/SidebarButton/SidebarButton.component';
@@ -10,6 +10,7 @@ import './CatererPreview.styles.scss';
 
 const CatererPreview = () => {
   const [caterer, setCaterer] = useState(null);
+  const navigate = useNavigate();
   const { catererId } = useParams();
   const dispatch = useDispatch();
 
@@ -41,7 +42,11 @@ const CatererPreview = () => {
         <div className="day-menu-container">
           {weekMenu
             ? Object.keys(weekMenu).map((day) => (
-                <DayMenuCard dayMenu={weekMenu[day]} day={day} />
+                <DayMenuCard
+                  dayMenu={weekMenu[day]}
+                  day={day}
+                  handleClick={() => navigate(`dayMenu/${weekMenu[day]._id}`)}
+                />
               ))
             : null}
         </div>

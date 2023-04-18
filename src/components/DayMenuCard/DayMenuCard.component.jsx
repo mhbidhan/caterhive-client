@@ -1,11 +1,13 @@
 import moment from 'moment';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import MenuCard from '../MenuCard/MenuCard.component';
 import Badge from '../common/Badge/Badge.component';
 import CatererDetailCard from './../CatererDetailCard/CatererDetailCard.component';
 import './DayMenuCard.styles.scss';
 
 const DayMenuCard = ({ dayMenu, day, handleClick }) => {
+  const navigate = useNavigate();
   const today = moment(new Date()).format('dddd');
   const menuDay =
     day?.toLocaleLowerCase() === today.toLocaleLowerCase()
@@ -29,7 +31,13 @@ const DayMenuCard = ({ dayMenu, day, handleClick }) => {
       </div>
       <div className="menu-card-container">
         {menus.map((menu) => (
-          <div className="individual-card-container">
+          <div
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(`/menus/${menu._id}`);
+            }}
+            className="individual-card-container"
+          >
             <MenuCard menu={menu} />
           </div>
         ))}
