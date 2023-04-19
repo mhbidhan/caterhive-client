@@ -10,7 +10,7 @@ import {
 import './CartItem.styles.scss';
 
 const CartItem = ({ cartItem }) => {
-  const { _id, thumbnail, title, price, quantity } = cartItem;
+  const { _id, thumbnail, title, price, quantity, masterPrice } = cartItem;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
@@ -35,7 +35,7 @@ const CartItem = ({ cartItem }) => {
             -
           </button>
           <p className="price">
-            {price} X {quantity}
+            {masterPrice || price} X {quantity}
           </p>
           <button
             onClick={(e) => {
