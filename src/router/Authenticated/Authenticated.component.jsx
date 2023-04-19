@@ -6,6 +6,9 @@ import CartModal from '../../components/CartModal/CartModal.component';
 import Bookmarks from '../../pages/Bookmarks/Bookmarks.component';
 import CatererPreview from '../../pages/CatererPreview/CatererPreview.page';
 import Home from '../../pages/Home/Home.page';
+import MyOrders from '../../pages/MyOrders/MyOrders.page';
+import NewOrder from '../../pages/NewOrder/NewOrder.page';
+import OrderPreview from '../../pages/OrderPreview/OrderPreview.page';
 import SplitScreen from './../../components/SplitScreen/SplitScreen.component';
 import MenuPreview from './../../pages/MenuPreview/MenuPreview.component';
 import MyProfile from './../../pages/MyProfile/MyProfile.page';
@@ -30,6 +33,20 @@ const Authenticated = () => {
       label: 'Bookmarks',
       element: <Bookmarks />,
       sidebar: true,
+    },
+    {
+      path: '/myOrders',
+      label: 'My Orders',
+      element: <MyOrders />,
+      sidebar: true,
+    },
+    {
+      path: '/newOrder',
+      element: <NewOrder />,
+    },
+    {
+      path: '/myOrders/:orderId',
+      element: <OrderPreview />,
     },
     {
       path: '/menus/:menuId',
