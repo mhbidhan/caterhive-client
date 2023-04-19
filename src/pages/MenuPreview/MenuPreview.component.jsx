@@ -25,6 +25,7 @@ const MenuPreview = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const masterPrice = state?.masterPrice;
+  const day = state?.day;
   const { bookmarkMenu } = useBookmark();
 
   let { menuId } = useParams();
@@ -78,7 +79,7 @@ const MenuPreview = () => {
           label={'Add to cart'}
           handleClick={(e) => {
             e.stopPropagation();
-            dispatch(addItemToCart(menu));
+            dispatch(addItemToCart({ ...menu, masterPrice, day }));
           }}
         />
       </div>

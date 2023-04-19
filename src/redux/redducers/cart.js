@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import moment from 'moment';
 
 const initialState = {
   cartHidden: true,
-  caterer: '439a025550f403936469429',
+  caterer: '',
   cartItems: [],
 };
 
@@ -13,11 +14,21 @@ export const cartSlice = createSlice({
     toggleCart: (state, action) => {
       state.cartHidden = !state.cartHidden;
     },
+
     setCartHidden: (state, action) => {
       state.cartHidden = true;
     },
+
+    setCartData: (state, action) => {
+      state.cartItems = action.payload;
+    },
+
     addItemToCart: (state, action) => {
       const cartItem = action.payload;
+
+      const today = moment(new Date()).format('dddd').toLowerCase();
+      if (cartItem.day !== today)
+        return alert('This menu is not available today');
 
       const caterer = cartItem.caterer?._id || cartItem.caterer;
 
@@ -37,6 +48,7 @@ export const cartSlice = createSlice({
             : item
         );
       }
+      persistCartData(state);
     },
 
     removeItemFromCart: (state, action) => {
@@ -45,6 +57,7 @@ export const cartSlice = createSlice({
       );
 
       if (state.cartItems.length <= 0) state.caterer = '';
+      persistCartData(state);
     },
 
     increaseCartItem: (state, action) => {
@@ -53,6 +66,7 @@ export const cartSlice = createSlice({
           ? { ...item, quantity: item.quantity + 1 }
           : item
       );
+      persistCartData(state);
     },
 
     decreaseCartItem: (state, action) => {
@@ -72,6 +86,7 @@ export const cartSlice = createSlice({
         );
 
       if (state.cartItems.length <= 0) state.caterer = '';
+      persistCartData(state);
     },
   },
 });
@@ -83,6 +98,11 @@ export const {
   removeItemFromCart,
   increaseCartItem,
   decreaseCartItem,
+  setCartData,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+function persistCartData(state) {
+  localStorage.setItem('cartData', JSON.stringify(state.cartItems));
+}
