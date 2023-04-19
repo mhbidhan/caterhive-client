@@ -2,13 +2,14 @@ $brand-img-size: 35%;
 
 .caterer-card {
   width: 100%;
-  max-width: 28rem;
   box-shadow: var(--shadow-prop) var(--color-shadow-grey);
   border-radius: 15px;
   position: relative;
   padding: 2rem;
   margin: 0 auto 3rem;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 
   .bookmark {
     right: 2rem;
@@ -18,11 +19,13 @@ $brand-img-size: 35%;
   .brand-img-container {
     width: $brand-img-size;
     height: $brand-img-size;
+    max-width: 80px;
     padding: 1rem;
     border-radius: 10px;
     box-shadow: var(--shadow-prop) var(--color-shadow-grey);
     position: relative;
     margin-bottom: 2rem;
+    margin-right: 2rem;
 
     .brand-img {
       width: 100%;
