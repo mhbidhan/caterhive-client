@@ -9,6 +9,7 @@ import Home from '../../pages/Home/Home.page';
 import MyOrders from '../../pages/MyOrders/MyOrders.page';
 import NewOrder from '../../pages/NewOrder/NewOrder.page';
 import OrderPreview from '../../pages/OrderPreview/OrderPreview.page';
+import PaymentSuccessful from '../../pages/PaymentSuccessful/PaymentSuccessful.page';
 import SplitScreen from './../../components/SplitScreen/SplitScreen.component';
 import MenuPreview from './../../pages/MenuPreview/MenuPreview.component';
 import MyProfile from './../../pages/MyProfile/MyProfile.page';
@@ -57,6 +58,11 @@ const Authenticated = () => {
       path: '/caterers/:catererId',
       label: 'Menu',
       element: <CatererPreview />,
+    },
+    {
+      path: '/orders/paymentSuccessful',
+      label: 'Menu',
+      element: <PaymentSuccessful />,
     },
   ];
   return (
