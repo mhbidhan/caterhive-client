@@ -20,7 +20,9 @@ export const cartSlice = createSlice({
     },
 
     setCartData: (state, action) => {
-      state.cartItems = action.payload;
+      const { cartItems, caterer } = action.payload;
+      state.cartItems = cartItems;
+      state.caterer = caterer;
     },
 
     addItemToCart: (state, action) => {
@@ -104,5 +106,6 @@ export const {
 export default cartSlice.reducer;
 
 function persistCartData(state) {
-  localStorage.setItem('cartData', JSON.stringify(state.cartItems));
+  const { cartItems, caterer } = state;
+  localStorage.setItem('cartData', JSON.stringify({ cartItems, caterer }));
 }
