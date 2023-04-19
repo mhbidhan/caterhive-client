@@ -11,10 +11,13 @@ const OrderCart = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const { setFormData, setView } = useContext(NewOrderContext);
+  const { formData, setFormData, setView, setAmount } =
+    useContext(NewOrderContext);
 
   useEffect(() => {
     const cartItems = JSON.parse(localStorage.getItem('cartData'));
+
+    if (!cartItems) return;
 
     dispatch(setCartData(cartItems));
   }, [dispatch]);
@@ -30,8 +33,6 @@ const OrderCart = () => {
     }));
   }, [cart, setFormData]);
 
-  if (!cart.cartItems?.length) return;
-
   const subtotal = cart.cartItems.reduce(
     (acc, curr) =>
       acc + curr.masterPrice * curr.quantity || curr.price * curr.quantity,
@@ -39,12 +40,16 @@ const OrderCart = () => {
   );
   const deliveryCharge = 0;
 
+  if (!cart.cartItems?.length) return <p>Cart is empty</p>;
+
   return (
     <>
+      <h1>Make A Order</h1>
       <div className="order-items-container">
-        {cart.cartItems.map((item) => (
-          <CartItem key={item._id} cartItem={item} />
-        ))}
+        {cart.cartItems.length &&
+          cart.cartItems.map((item) => (
+            <CartItem key={item._id} cartItem={item} />
+          ))}
       </div>
       <div className="pricing">
         <p className="subtotal">Subtotal: {subtotal}</p>
@@ -52,7 +57,12 @@ const OrderCart = () => {
         <p className="total">Total : {subtotal + deliveryCharge}</p>
       </div>
       <CustomButton
-        handleClick={() => setView(<NewOrderForm />)}
+        handleClick={() => {
+          if (!formData.orderedProducts.length || !formData.caterer) return;
+
+          setAmount(subtotal + deliveryCharge);
+          setView(<NewOrderForm />);
+        }}
         label={'Next'}
         primary={true}
         size="large"
