@@ -7,7 +7,7 @@ const OrderMenuCard = ({ orderMenu, quantity }) => {
   const { thumbnail, title, price, masterPrice } = orderMenu;
 
   return (
-    <div className="order-item">
+    <div className="order-menu-card">
       <img src={thumbnail} alt="" className="order-item-img" />
       <div className="content">
         <p className="title">{title}</p>
