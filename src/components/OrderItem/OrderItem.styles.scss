@@ -1,0 +1,37 @@
+.order-item {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  margin-bottom: 1.5rem;
+  position: relative;
+
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .status {
+    width: 8.5rem;
+    height: 4rem;
+    text-align: center;
+    border-radius: 1rem;
+    padding: 0.8rem;
+    background-color: var(--color-accent);
+    color: #fff;
+    text-transform: capitalize;
+    margin: 1rem 0;
+  }
+
+  .delivered {
+    background-color: #0ec90e;
+  }
+
+  .value {
+    font-weight: 500;
+    color: var(--color-text);
+    font-size: 2rem;
+    text-transform: capitalize;
+    text-align: center;
+  }
+}
