@@ -63,7 +63,7 @@ const MenuCard = ({ menu, masterPrice, handleClick }) => {
         label={'Add to cart'}
         handleClick={(e) => {
           e.stopPropagation();
-          dispatch(addItemToCart(menu));
+          dispatch(addItemToCart({ ...menu, masterPrice }));
         }}
       />
     </div>
