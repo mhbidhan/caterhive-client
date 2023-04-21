@@ -1,0 +1,21 @@
+.home {
+  position: relative;
+
+  .home-background-img {
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    width: 100vw;
+    z-index: -2;
+    border-radius: 0% 0% 6% 6% / 0% 0% 6% 6%;
+  }
+  .heading {
+    max-width: 75%;
+    // color: #fff;
+  }
+
+  .main {
+    position: relative;
+    z-index: 2;
+  }
+}
