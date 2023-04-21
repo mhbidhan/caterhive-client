@@ -37,7 +37,7 @@ const Bookmarks = () => {
   return (
     <div className="bookmark container padding-top">
       <SidebarButton />
-      <Tab tabData={tabData} />
+      <Tab tabData={tabData} id={'bookmark'} />
     </div>
   );
 };
