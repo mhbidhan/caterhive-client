@@ -1,6 +1,7 @@
 .caterer-preview {
   .caterer-intro {
     position: absolute;
+    width: 100%;
     top: 12rem;
     left: 50%;
     transform: translateX(-50%);
@@ -9,7 +10,49 @@
 
     h3 {
       text-transform: capitalize;
+    }
+
+    p,
+    h3 {
       margin-bottom: 0.5rem;
+    }
+
+    .rating-review,
+    .no-review {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .post-review {
+      margin: 1rem;
+      text-transform: capitalize;
+      text-decoration: underline;
+      color: var(--color-primary);
+      cursor: pointer;
+    }
+
+    .rating {
+      color: var(--color-text);
+      // margin-right: 1rem;
+      font-weight: 600;
+    }
+
+    .review-container {
+      color: var(--color-primary);
+    }
+
+    .review-count {
+      text-decoration: underline;
+      margin: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .star-icon {
+      fill: var(--color-accent);
+      width: 4rem;
+      text-align: start;
     }
   }
 
