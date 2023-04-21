@@ -1,13 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
-import { MenuContext } from '../../pages/MenuPreview/MenuPreview.component';
 import CustomButton from './../common/CustomButton/CustomButton.component';
 import FloatingButton from './../common/FloatingButton/FloatingButton.component';
 import InputField from './../common/InputField/InputField.component';
 import './ReviewForm.styles.scss';
 
-const ReviewForm = ({ reviewFor = '', setShowReviewForm }) => {
-  const { handleReview } = useContext(MenuContext);
+const ReviewForm = ({ reviewFor = '', setShowReviewForm, handleReview }) => {
   const [stars, setStars] = useState([
     { rating: 1, active: true },
     { rating: 2, active: false },

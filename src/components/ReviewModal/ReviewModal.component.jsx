@@ -5,7 +5,12 @@ import CustomButton from './../common/CustomButton/CustomButton.component';
 import FloatingButton from './../common/FloatingButton/FloatingButton.component';
 import './ReviewModal.styles.scss';
 
-const ReviewModal = ({ reviewFor = 'Product', reviews = [], handleClose }) => {
+const ReviewModal = ({
+  reviewFor = 'Product',
+  reviews = [],
+  handleClose,
+  handleReview,
+}) => {
   const [showReviewForm, setShowReviewForm] = useState(false);
   return (
     <div className="review-modal">
@@ -24,6 +29,7 @@ const ReviewModal = ({ reviewFor = 'Product', reviews = [], handleClose }) => {
             <ReviewForm
               reviewFor={reviewFor}
               setShowReviewForm={setShowReviewForm}
+              handleReview={handleReview}
             />
           ) : (
             <>
