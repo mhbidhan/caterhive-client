@@ -19,10 +19,6 @@ const NewOrder = () => {
     specialInstruction: '',
   });
 
-  useEffect(() => {
-    console.log(formData);
-  }, [formData]);
-
   return (
     <div className="new-order container">
       <SidebarButton />

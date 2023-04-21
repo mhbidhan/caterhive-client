@@ -6,9 +6,9 @@ import { ReactComponent as TickMark } from '../../assets/icons/tick-mark.svg';
 import onTheWay from '../../assets/img/on-the-way.gif';
 import processing from '../../assets/img/processing.gif';
 import OrderMenuCard from '../../components/OrderMenuCard/OrderMenuCard.component';
+import SidebarButton from '../../components/SidebarButton/SidebarButton.component';
 import { setLoading } from '../../redux/redducers/loading';
 import { getOrderById } from '../../services/order';
-import BackButton from './../../components/BackButton/BackButton.component';
 import CatererDetailCard from './../../components/CatererDetailCard/CatererDetailCard.component';
 import './OrderPreview.styles.scss';
 
@@ -44,7 +44,7 @@ const OrderPreview = () => {
   return (
     <div className="order-preview">
       <div className="back-btn-container">
-        <BackButton />
+        <SidebarButton />
       </div>
       {orderStatus === 'processing' ? (
         <img className="status-img" src={processing} alt="" />
