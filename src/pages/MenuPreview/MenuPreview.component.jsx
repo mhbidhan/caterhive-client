@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { ReactComponent as CartIcon } from '../../assets/icons/cart-icon.svg';
@@ -14,8 +14,6 @@ import FoodItemList from './../../components/FoodItemList/FoodItemList.component
 import ReviewModal from './../../components/ReviewModal/ReviewModal.component';
 import BookmarkButton from './../../components/common/BookmarkButton/BookmarkButton.component';
 import './MenuPreview.styles.scss';
-
-export const MenuContext = createContext();
 
 const MenuPreview = () => {
   const user = useSelector((state) => state.user);
@@ -72,7 +70,7 @@ const MenuPreview = () => {
 
   const bookmarked = user.bookmarks.menus.includes(_id);
   return (
-    <MenuContext.Provider value={{ handleReview }}>
+    <>
       <div className="cart-btn-container">
         <CustomIconButton
           Icon={CartIcon}
@@ -89,6 +87,7 @@ const MenuPreview = () => {
             reviewFor={title}
             reviews={reviews}
             handleClose={() => setReviewModal(false)}
+            handleReview={handleReview}
           />
         ) : null}
         <div className={`menu-preview ${reviewModal ? 'modal-active' : ''}`}>
@@ -154,7 +153,7 @@ const MenuPreview = () => {
           </div>
         </div>
       </div>
-    </MenuContext.Provider>
+    </>
   );
 };
 
