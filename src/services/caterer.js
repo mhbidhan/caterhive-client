@@ -12,10 +12,35 @@ export async function getAllCaterers() {
   }
 }
 
+export async function getAllCaterersByArea(areaId) {
+  try {
+    const { data } = await http.get(
+      `${process.env.REACT_APP_API_ENDPOINT}/caterers/area?area=${areaId}`
+    );
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export async function getCatererById(id) {
   try {
     const { data } = await http.get(
       `${process.env.REACT_APP_API_ENDPOINT}/caterers/${id}`
+    );
+
+    return data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export async function reviewCatererById(id, review) {
+  try {
+    const { data } = await http.post(
+      `${process.env.REACT_APP_API_ENDPOINT}/caterers/reviews/${id}`,
+      review
     );
 
     return data;
