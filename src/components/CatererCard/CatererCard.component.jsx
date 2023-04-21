@@ -12,10 +12,8 @@ const CatererCard = ({ caterer, handleClick }) => {
 
   if (!caterer) return;
 
-  const { _id, businessName, brandImg, activeDays, operationalAreas, reviews } =
+  const { _id, businessName, brandImg, activeDays, operationalAreas, rating } =
     caterer;
-  const rating =
-    reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length;
 
   const handleBookmark = (e) => {
     e.stopPropagation();
@@ -27,7 +25,7 @@ const CatererCard = ({ caterer, handleClick }) => {
       <span className="bookmark">
         <BookmarkButton
           handleClick={handleBookmark}
-          bookmarked={user.bookmarks.caterers.includes(_id)}
+          bookmarked={user.bookmarks?.caterers.includes(_id)}
         />
       </span>
       <div className="brand-img-container">
