@@ -14,10 +14,17 @@ const ReviewModal = ({
   const [showReviewForm, setShowReviewForm] = useState(false);
   return (
     <div className="review-modal">
-      <div onClick={handleClose} className="backdrop">
+      <div
+        onClick={() => {
+          document.body.classList.remove('scroll-lock');
+          handleClose();
+        }}
+        className="backdrop"
+      >
         <div className="float-container">
           <FloatingButton
             onClick={() => {
+              document.body.classList.remove('scroll-lock');
               handleClose();
             }}
           >

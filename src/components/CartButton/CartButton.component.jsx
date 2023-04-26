@@ -8,7 +8,13 @@ const CartButton = () => {
   const dispatch = useDispatch();
 
   return (
-    <button onClick={() => dispatch(toggleCart())} className="cart-button">
+    <button
+      onClick={() => {
+        document.body.classList.add('scroll-lock');
+        dispatch(toggleCart());
+      }}
+      className="cart-button"
+    >
       <ShopingBag />
     </button>
   );

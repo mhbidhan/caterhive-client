@@ -78,6 +78,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.scroll-lock {
+  overflow-y: hidden;
+}
+
 h1,
 h2,
 h3,

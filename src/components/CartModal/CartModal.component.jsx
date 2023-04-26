@@ -42,6 +42,7 @@ const CartModal = () => {
   }, [getCaterer, cart]);
 
   const handleModalClose = () => {
+    document.body.classList.remove('scroll-lock');
     dispatch(setCartHidden());
   };
   return (

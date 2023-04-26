@@ -138,7 +138,10 @@ const MenuPreview = () => {
                 <span className="review-container">
                   (
                   <span
-                    onClick={() => setReviewModal(true)}
+                    onClick={() => {
+                      document.body.classList.add('scroll-lock');
+                      setReviewModal(true);
+                    }}
                     className="review-count"
                   >
                     {reviews.length} {reviews.length > 1 ? 'Reviews' : 'Review'}
