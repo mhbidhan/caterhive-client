@@ -53,37 +53,43 @@ const CartModal = () => {
             &#10006;
           </FloatingButton>
         </div>
-        <h2 className="caterer-name">
-          {loading
-            ? 'Loading...'
-            : currentCaterer?.businessName || 'Cart is empty'}
-        </h2>
-        <div className="cart-item-container">
-          {cart.cartItems.map((cartItem) => (
-            <CartItem key={cartItem._id} cartItem={cartItem} />
-          ))}
-        </div>
+        {cart.CartItem ? (
+          <>
+            <h2 className="caterer-name">
+              {loading
+                ? 'Loading...'
+                : currentCaterer?.businessName || 'Cart is empty'}
+            </h2>
+            <div className="cart-item-container">
+              {cart.cartItems.map((cartItem) => (
+                <CartItem key={cartItem._id} cartItem={cartItem} />
+              ))}
+            </div>
 
-        <div className="pricing">
-          Total :{' '}
-          {cart.cartItems.reduce(
-            (acc, curr) =>
-              acc + curr.masterPrice * curr.quantity ||
-              curr.price * curr.quantity,
-            0
-          )}
-        </div>
-        <div className="btn-container">
-          <CustomButton
-            label={'Order Now'}
-            primary={true}
-            size="large"
-            handleClick={() => {
-              handleModalClose();
-              navigate('/newOrder');
-            }}
-          />
-        </div>
+            <div className="pricing">
+              Total :{' '}
+              {cart.cartItems.reduce(
+                (acc, curr) =>
+                  acc + curr.masterPrice * curr.quantity ||
+                  curr.price * curr.quantity,
+                0
+              )}
+            </div>
+            <div className="btn-container">
+              <CustomButton
+                label={'Order Now'}
+                primary={true}
+                size="large"
+                handleClick={() => {
+                  handleModalClose();
+                  navigate('/newOrder');
+                }}
+              />
+            </div>
+          </>
+        ) : (
+          <div className="empty-cart-note">Cart is empty</div>
+        )}
       </div>
     </div>
   );
