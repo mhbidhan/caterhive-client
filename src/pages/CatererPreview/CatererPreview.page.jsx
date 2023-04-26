@@ -3,11 +3,13 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ReactComponent as StarIcon } from '../../assets/icons/star-icon.svg';
 import DayMenuCard from '../../components/DayMenuCard/DayMenuCard.component';
+import EventServiceCard from '../../components/EventServiceCard/EventServiceCard.cpomponent';
 import PageDecorator from '../../components/PageDecorator/PageDecorator.component';
 import ReviewModal from '../../components/ReviewModal/ReviewModal.component';
 import SidebarButton from '../../components/SidebarButton/SidebarButton.component';
 import { setLoading } from '../../redux/redducers/loading';
 import { getCatererById, reviewCatererById } from '../../services/caterer';
+import Tab from './../../components/common/Tab/Tab.component';
 import './CatererPreview.styles.scss';
 
 export const CatererContext = createContext();
@@ -34,7 +36,15 @@ const CatererPreview = () => {
 
   if (!caterer) return null;
 
-  const { businessName, email, brandImg, reviews, rating, weekMenu } = caterer;
+  const {
+    businessName,
+    email,
+    brandImg,
+    reviews,
+    rating,
+    weekMenu,
+    eventService,
+  } = caterer;
 
   const handleReview = async (
     e,
@@ -51,6 +61,45 @@ const CatererPreview = () => {
     setShowReviewForm(false);
   };
 
+  const tabData = [
+    {
+      id: 'weekMenus',
+      label: 'Weekly Service',
+      content: (
+        <>
+          {weekMenu
+            ? Object.keys(weekMenu).map((day) => (
+                <DayMenuCard
+                  key={day}
+                  dayMenu={weekMenu[day]}
+                  day={day}
+                  handleClick={() => navigate(`dayMenu/${weekMenu[day]._id}`)}
+                />
+              ))
+            : null}
+        </>
+      ),
+    },
+    {
+      id: 'eventService',
+      label: 'Event Service',
+      content: (
+        <>
+          {eventService ? (
+            Object.keys(eventService).map((tier) => (
+              <EventServiceCard
+                key={tier}
+                eventService={eventService.basic}
+                tier={tier}
+              />
+            ))
+          ) : (
+            <div>{businessName} does not provide event services</div>
+          )}
+        </>
+      ),
+    },
+  ];
   return (
     <PageDecorator circle={false}>
       {reviewModal ? (
@@ -71,7 +120,10 @@ const CatererPreview = () => {
             <div className="no-review">
               <StarIcon className="star-icon" /> No reviews yet
               <span
-                onClick={() => setReviewModal(true)}
+                onClick={() => {
+                  document.body.classList.add('scroll-lock');
+                  setReviewModal(true);
+                }}
                 className="post-review"
               >
                 Post a review
@@ -95,17 +147,8 @@ const CatererPreview = () => {
           )}
         </div>
 
-        <div className="day-menu-container">
-          {weekMenu
-            ? Object.keys(weekMenu).map((day) => (
-                <DayMenuCard
-                  key={day}
-                  dayMenu={weekMenu[day]}
-                  day={day}
-                  handleClick={() => navigate(`dayMenu/${weekMenu[day]._id}`)}
-                />
-              ))
-            : null}
+        <div className="caterer-content-container">
+          <Tab id={'catererPreview'} tabData={tabData} />
         </div>
       </div>
     </PageDecorator>
