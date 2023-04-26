@@ -1,0 +1,51 @@
+.event-service-card {
+  width: 100%;
+  padding: 2rem;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  margin-bottom: 2rem;
+  border-radius: 3rem;
+  position: relative;
+
+  .badge-container {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    text-transform: capitalize;
+
+    * {
+      color: black;
+    }
+  }
+
+  .event-service-contnet {
+    margin: 2rem 0;
+  }
+
+  .title,
+  .price {
+    font-weight: 600;
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--color-text);
+  }
+
+  .price {
+    color: var(--color-primary);
+  }
+
+  .img-container {
+    width: 100%;
+    border: 2px solid var(--color-accent);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .menu-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
