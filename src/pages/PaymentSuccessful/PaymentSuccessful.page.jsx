@@ -1,5 +1,6 @@
 import { useCallback, useEffect } from 'react';
 import useLoading from '../../hooks/useLoading';
+import { createNewEventServiceOrder } from '../../services/eventServiceOrder';
 import { createNewOrder } from '../../services/order';
 
 const PaymentSuccessful = () => {
@@ -7,14 +8,31 @@ const PaymentSuccessful = () => {
   const makeOrder = useCallback(async () => {
     try {
       startLoading();
-      const orderCreds = JSON.parse(localStorage.getItem('orderCreds'));
+      const isEventOrder = localStorage.getItem('isEventOrder');
+      console.log(isEventOrder);
 
-      const newOrder = await createNewOrder(orderCreds);
+      if (isEventOrder) {
+        const eventOrderCreds = JSON.parse(
+          localStorage.getItem('eventOrderCreds')
+        );
 
-      localStorage.removeItem('cartData');
-      localStorage.removeItem('orderCreds');
-      stopLoading();
-      document.location = `/myOrders/${newOrder._id}`;
+        const newOrder = await createNewEventServiceOrder(eventOrderCreds);
+
+        localStorage.removeItem('eventOrderCreds');
+        stopLoading();
+        document.location = `/eventOrder/${newOrder._id}`;
+
+        localStorage.removeItem('isEventOrder');
+      } else {
+        const orderCreds = JSON.parse(localStorage.getItem('orderCreds'));
+
+        const newOrder = await createNewOrder(orderCreds);
+
+        localStorage.removeItem('cartData');
+        localStorage.removeItem('orderCreds');
+        stopLoading();
+        document.location = `/myOrders/${newOrder._id}`;
+      }
     } catch (error) {
       localStorage.removeItem('orderCreds');
       document.location = `/newOrder`;

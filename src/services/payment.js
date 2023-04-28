@@ -11,8 +11,6 @@ export async function makePayment({
     }/payment?amount=${amount}&customerName=${customerName}}&customerEamil=${customerEamil}&customerPhone=${customerPhone}&shippingAddress=${shippingAddress}&tran_id=${
       customerName + amount
     }`;
-
-    // return data;
   } catch (error) {
     throw error;
   }
