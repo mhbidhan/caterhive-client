@@ -5,12 +5,15 @@ import CartButton from '../../components/CartButton/CartButton.component';
 import CartModal from '../../components/CartModal/CartModal.component';
 import Bookmarks from '../../pages/Bookmarks/Bookmarks.component';
 import CatererPreview from '../../pages/CatererPreview/CatererPreview.page';
+import EventMenuPreview from '../../pages/EventMenuPreview/EventMenuPreview.component';
+import EventOrderPreview from '../../pages/EventOrderPreview/EventOrderPreview.page';
 import Home from '../../pages/Home/Home.page';
 import MyOrders from '../../pages/MyOrders/MyOrders.page';
 import NewOrder from '../../pages/NewOrder/NewOrder.page';
 import OrderPreview from '../../pages/OrderPreview/OrderPreview.page';
 import PaymentSuccessful from '../../pages/PaymentSuccessful/PaymentSuccessful.page';
 import SplitScreen from './../../components/SplitScreen/SplitScreen.component';
+import EventServiceOrder from './../../pages/EventServiceOrder/EventServiceOrder.page';
 import MenuPreview from './../../pages/MenuPreview/MenuPreview.component';
 import MyProfile from './../../pages/MyProfile/MyProfile.page';
 
@@ -51,17 +54,26 @@ const Authenticated = () => {
     },
     {
       path: '/menus/:menuId',
-      label: 'Menu',
       element: <MenuPreview />,
     },
     {
       path: '/caterers/:catererId',
-      label: 'Menu',
       element: <CatererPreview />,
     },
     {
+      path: '/eventMenu/:menuId',
+      element: <EventMenuPreview />,
+    },
+    {
+      path: '/eventService/order/:menuId',
+      element: <EventServiceOrder />,
+    },
+    {
+      path: '/eventOrder/:orderId',
+      element: <EventOrderPreview />,
+    },
+    {
       path: '/orders/paymentSuccessful',
-      label: 'Menu',
       element: <PaymentSuccessful />,
     },
   ];
