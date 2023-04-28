@@ -89,7 +89,13 @@ const CatererPreview = () => {
             Object.keys(eventService).map((tier) => (
               <EventServiceCard
                 key={tier}
-                eventService={eventService.basic}
+                eventService={eventService[tier]}
+                handleClick={() =>
+                  navigate('/eventMenu/' + eventService[tier]._id)
+                }
+                handleOrder={() =>
+                  navigate('/eventService/order/' + eventService[tier]._id)
+                }
                 tier={tier}
               />
             ))
