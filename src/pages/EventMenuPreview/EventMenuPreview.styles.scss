@@ -1,0 +1,52 @@
+.event-preview-page {
+  .back-btn-container {
+    position: absolute;
+    top: 2rem;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .menu-section {
+    .name {
+      text-transform: capitalize;
+    }
+
+    .menu-list {
+      display: flex;
+      overflow-x: auto;
+    }
+  }
+
+  .content {
+    margin-top: 2rem;
+    margin-bottom: 10rem;
+
+    .data {
+      margin-bottom: 5rem;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 2rem;
+      color: var(--color-text);
+      text-transform: capitalize;
+    }
+
+    .key {
+      font-weight: bold;
+      color: var(--color-text);
+      text-transform: capitalize;
+
+      &::after {
+        content: ':';
+        margin-left: 0.5rem;
+      }
+    }
+    .value {
+      margin-left: auto;
+      margin-right: 2rem;
+    }
+  }
+}
