@@ -27,7 +27,12 @@ const EventServiceCard = ({ eventService, tier, handleClick, handleOrder }) => {
       </div>
       <div className="img-container">
         {menus.map((menu) => (
-          <img src={menu[0].imgUrl} alt="" className="menu-img" />
+          <img
+            key={menu[0]._id}
+            src={menu[0].imgUrl}
+            alt=""
+            className="menu-img"
+          />
         ))}
       </div>
       <CustomButton

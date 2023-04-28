@@ -31,6 +31,7 @@ const NewOrderForm = () => {
 
     const { error } = newOrderValidatorSchema.validate(formData);
 
+    console.log(error);
     if (error) {
       setErrorMessages({
         [error?.details[0]?.path[0]]: error?.message,
