@@ -1,0 +1,28 @@
+.food-item-card {
+  width: 100%;
+  max-width: 20rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+
+  .card-img {
+    border-radius: 1rem;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .food-item-title,
+  .price {
+    text-transform: capitalize;
+    font-weight: bold;
+    color: var(--color-text);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .price {
+    color: var(--color-primary);
+  }
+}
