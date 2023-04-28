@@ -1,0 +1,33 @@
+.event-order-menu-card {
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: var(--shadow-prop) var(--color-shadow-grey);
+  margin-bottom: 1.5rem;
+  display: flex;
+  position: relative;
+
+  .img-container {
+    width: 100%;
+    max-width: 10rem;
+    border: 2px solid var(--color-accent);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+    border-radius: 2rem;
+    margin-right: 2rem;
+  }
+
+  .menu-img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .content {
+    p {
+      color: #000;
+      max-width: max-content;
+      margin-bottom: 1rem;
+    }
+  }
+}
