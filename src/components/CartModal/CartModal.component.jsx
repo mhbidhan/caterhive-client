@@ -53,7 +53,7 @@ const CartModal = () => {
             &#10006;
           </FloatingButton>
         </div>
-        {cart.CartItem ? (
+        {cart.cartItems.length ? (
           <>
             <h2 className="caterer-name">
               {loading
