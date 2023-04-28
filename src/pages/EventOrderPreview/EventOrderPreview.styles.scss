@@ -1,0 +1,41 @@
+.event-order-preview {
+  .back-btn-container {
+    width: 100%;
+    position: relative;
+
+    * {
+      top: 2rem;
+      left: 2rem;
+    }
+  }
+
+  .status-img {
+    width: 100%;
+  }
+
+  .order-menu-container {
+    margin-bottom: 4rem;
+  }
+
+  .key {
+    font-weight: bold;
+    color: var(--color-text);
+
+    &::after {
+      content: ':';
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.tick-mark-container {
+  text-align: center;
+
+  .tick-mark {
+    fill: #0ec90e;
+    width: 10rem;
+  }
+  h2 {
+    color: #0ec90e;
+  }
+}
